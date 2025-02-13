@@ -69,7 +69,7 @@ public class RsqlColumnService {
         return visibleColumns;
     }
 
-    public String enhanceQueryWithVisibleColumns(String userId, String templateName, String existingQuery) {
+    public String enhanceQueryWithVisibleColumns(String templateName, String existingQuery) {
         log.debug("Enhancing query. Existing query: {}", existingQuery);
 
         List<TemplateProperties> properties = getColumnProperties(templateName);

@@ -26,7 +26,7 @@ public class RsqlQueryWrapperService {
     ) {
         String userId = SecurityUtils.getCurrentUserLogin().orElse("system");
         List<String> visibleColumns = rsqlColumnService.getVisibleColumns(userId, templateName);
-        String enhancedQuery = rsqlColumnService.enhanceQueryWithVisibleColumns(userId, templateName, rsqlQuery);
+        String enhancedQuery = rsqlColumnService.enhanceQueryWithVisibleColumns(templateName, rsqlQuery);
 
         log.debug("Using RSQL query: {}", enhancedQuery);
         log.debug("Visible columns: {}", visibleColumns);
