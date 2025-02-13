@@ -36,10 +36,18 @@ public class UserService {
 
     private final AuthorityRepository authorityRepository;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository) {
+    private final RsqlQueryWrapperService rsqlQueryWrapper;
+
+    public UserService(
+        UserRepository userRepository,
+        PasswordEncoder passwordEncoder,
+        AuthorityRepository authorityRepository,
+        RsqlQueryWrapperService rsqlQueryWrapper
+    ) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
+        this.rsqlQueryWrapper = rsqlQueryWrapper;
     }
 
     public Optional<User> activateRegistration(String key) {
@@ -251,7 +259,13 @@ public class UserService {
     }
 
     public Page<AdminUserDTO> getAllManagedUsers(Pageable pageable) {
-        return userRepository.findAll(pageable).map(AdminUserDTO::new);
+        return rsqlQueryWrapper.executeQuery(
+            "user-management-columns",
+            null,
+            pageable,
+            (query, page) -> userRepository.findAll(page),
+            AdminUserDTO::new
+        );
     }
 
     public Page<UserDTO> getAllPublicUsers(Pageable pageable) {

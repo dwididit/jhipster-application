@@ -5,6 +5,7 @@ import dev.dwidi.jhipster.domain.User;
 import dev.dwidi.jhipster.repository.UserRepository;
 import dev.dwidi.jhipster.security.AuthoritiesConstants;
 import dev.dwidi.jhipster.service.MailService;
+import dev.dwidi.jhipster.service.RsqlColumnService;
 import dev.dwidi.jhipster.service.UserService;
 import dev.dwidi.jhipster.service.dto.AdminUserDTO;
 import dev.dwidi.jhipster.web.rest.errors.BadRequestAlertException;
@@ -86,10 +87,18 @@ public class UserResource {
 
     private final MailService mailService;
 
-    public UserResource(UserService userService, UserRepository userRepository, MailService mailService) {
+    private final RsqlColumnService rsqlColumnService;
+
+    public UserResource(
+        UserService userService,
+        UserRepository userRepository,
+        MailService mailService,
+        RsqlColumnService rsqlColumnService
+    ) {
         this.userService = userService;
         this.userRepository = userRepository;
         this.mailService = mailService;
+        this.rsqlColumnService = rsqlColumnService;
     }
 
     /**

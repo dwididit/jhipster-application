@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserConfigurationRepository extends MongoRepository<UserConfiguration, String> {
     Optional<UserConfiguration> findByUserId(String userId);
-    boolean existsByUserId(String userId);
-    void deleteByUserId(String userId);
+    Optional<UserConfiguration> findByUser_Login(String login);
 }

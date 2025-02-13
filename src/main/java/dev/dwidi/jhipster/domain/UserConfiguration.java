@@ -33,31 +33,11 @@ public class UserConfiguration extends AbstractAuditingEntity<String> {
     @Field("configurations")
     private List<TemplateColumn> configurations = new ArrayList<>();
 
-    public void addTemplateColumn(TemplateColumn templateColumn) {
-        if (configurations == null) {
-            configurations = new ArrayList<>();
-        }
-        configurations.add(templateColumn);
-    }
-
-    public void removeTemplateColumn(String templateName) {
-        if (configurations != null) {
-            configurations.removeIf(template -> template.getTemplateName().equals(templateName));
-        }
-    }
-
     public TemplateColumn getTemplateColumnByName(String templateName) {
         if (configurations != null) {
             return configurations.stream().filter(template -> template.getTemplateName().equals(templateName)).findFirst().orElse(null);
         }
         return null;
-    }
-
-    public void updateTemplateProperties(String templateName, List<TemplateProperties> newProperties) {
-        TemplateColumn template = getTemplateColumnByName(templateName);
-        if (template != null) {
-            template.setProperties(newProperties);
-        }
     }
 
     public void setUser(User user) {

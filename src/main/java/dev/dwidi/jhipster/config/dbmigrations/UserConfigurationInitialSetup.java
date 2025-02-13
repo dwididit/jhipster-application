@@ -39,22 +39,22 @@ public class UserConfigurationInitialSetup {
 
         List<TemplateColumn> configurations = new ArrayList<>();
 
-        // User Management Columns Configuration
         TemplateColumn userManagementConfig = new TemplateColumn();
         userManagementConfig.setTemplateName("user-management-columns");
+
         List<TemplateProperties> userManagementProperties = new ArrayList<>();
-        userManagementProperties.add(new TemplateProperties(1, "First Name", "firstName", true, true));
-        userManagementProperties.add(new TemplateProperties(2, "Last Name", "lastName", true, true));
+        userManagementProperties.add(new TemplateProperties(1, "ID", "id", true, true));
+        userManagementProperties.add(new TemplateProperties(2, "Login", "login", true, true));
+        userManagementProperties.add(new TemplateProperties(3, "Email", "email", true, true));
+        userManagementProperties.add(new TemplateProperties(4, "Activated", "activated", true, true));
+        userManagementProperties.add(new TemplateProperties(5, "Language", "langKey", true, true));
+        userManagementProperties.add(new TemplateProperties(6, "Profiles", "authorities", true, true));
+        userManagementProperties.add(new TemplateProperties(7, "Created date", "createdDate", true, true));
+        userManagementProperties.add(new TemplateProperties(8, "Modified by", "lastModifiedBy", true, true));
+        userManagementProperties.add(new TemplateProperties(9, "Modified date", "lastModifiedDate", true, true));
+
         userManagementConfig.setProperties(userManagementProperties);
         configurations.add(userManagementConfig);
-
-        // Role Columns Configuration
-        TemplateColumn roleConfig = new TemplateColumn();
-        roleConfig.setTemplateName("role-columns");
-        List<TemplateProperties> roleProperties = new ArrayList<>();
-        roleProperties.add(new TemplateProperties(1, "Role Name", "name", true, true));
-        roleConfig.setProperties(roleProperties);
-        configurations.add(roleConfig);
 
         config.setConfigurations(configurations);
         return config;

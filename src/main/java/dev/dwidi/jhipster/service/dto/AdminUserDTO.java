@@ -1,5 +1,6 @@
 package dev.dwidi.jhipster.service.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import dev.dwidi.jhipster.config.Constants;
 import dev.dwidi.jhipster.domain.Authority;
 import dev.dwidi.jhipster.domain.User;
@@ -18,37 +19,49 @@ public class AdminUserDTO implements Serializable {
 
     private String id;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @NotBlank
     @Pattern(regexp = Constants.LOGIN_REGEX)
     @Size(min = 1, max = 50)
     private String login;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Size(max = 50)
     private String firstName;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Size(max = 50)
     private String lastName;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Email
     @Size(min = 5, max = 254)
     private String email;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Size(max = 256)
     private String imageUrl;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private boolean activated = false;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @Size(min = 2, max = 10)
     private String langKey;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String createdBy;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Instant createdDate;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String lastModifiedBy;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Instant lastModifiedDate;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Set<String> authorities;
 
     public AdminUserDTO() {
