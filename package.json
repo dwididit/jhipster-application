@@ -1,8 +1,8 @@
 {
-  "name": "jhipster-application",
+  "name": "jhipster",
   "version": "0.0.1-SNAPSHOT",
   "private": true,
-  "description": "Description for Jhipster Application",
+  "description": "Description for JHipster",
   "license": "UNLICENSED",
   "scripts": {
     "app:start": "./gradlew",

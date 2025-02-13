@@ -1,0 +1,34 @@
+application {
+  config {
+    applicationType monolith
+    databaseType mongodb
+  }
+}
+
+entity TemplateColumnProperties {
+    index Integer required
+    label String required
+    name String required
+    show Boolean required
+    strict Boolean required
+}
+
+entity ConfigurationTemplate {
+    templateName String required
+}
+
+entity UserConfiguration {
+    userId Long required
+}
+
+relationship OneToMany {
+    ConfigurationTemplate{properties} to TemplateColumnProperties
+    UserConfiguration{configurations} to ConfigurationTemplate
+}
+
+service all with serviceImpl
+dto * with mapstruct
+paginate * with pagination
+noFluentMethod all
+
+clientRootFolder UserConfiguration with template
