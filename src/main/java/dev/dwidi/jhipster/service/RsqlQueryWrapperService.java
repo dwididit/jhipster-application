@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class RsqlQueryWrapperService {
 
-    private final RsqlColumnService rsqlColumnService;
+    private final ColumnVisibilityService columnVisibilityService;
 
     public <T, D> Page<D> executeQuery(
         String templateName,
@@ -25,8 +25,8 @@ public class RsqlQueryWrapperService {
         DtoMapper<T, D> dtoMapper
     ) {
         String userId = SecurityUtils.getCurrentUserLogin().orElse("system");
-        List<String> visibleColumns = rsqlColumnService.getVisibleColumns(userId, templateName);
-        String enhancedQuery = rsqlColumnService.enhanceQueryWithVisibleColumns(templateName, rsqlQuery);
+        List<String> visibleColumns = columnVisibilityService.getVisibleColumns(userId, templateName);
+        String enhancedQuery = columnVisibilityService.enhanceQueryWithVisibleColumns(templateName, rsqlQuery);
 
         log.debug("Using RSQL query: {}", enhancedQuery);
         log.debug("Visible columns: {}", visibleColumns);
@@ -37,7 +37,7 @@ public class RsqlQueryWrapperService {
             .getContent()
             .stream()
             .map(dtoMapper::toDto)
-            .map(dto -> rsqlColumnService.filterDtoFields(dto, visibleColumns))
+            .map(dto -> columnVisibilityService.filterDtoFields(dto, visibleColumns))
             .collect(Collectors.toList());
 
         return new PageImpl<>(dtos, pageable, result.getTotalElements());

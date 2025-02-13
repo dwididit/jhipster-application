@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RsqlColumnService {
+public class ColumnVisibilityService {
 
     private final UserConfigurationRepository userConfigurationRepository;
     private final UserRepository userRepository;
