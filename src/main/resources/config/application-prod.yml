@@ -33,7 +33,9 @@ spring:
       enabled: false
   data:
     mongodb:
-      uri: mongodb://localhost:27017/jhipster
+      uri: mongodb://jhipsterapplication:jhipsterapplication@localhost:27018/jhipsterapplication?authSource=admin
+      database: jhipsterapplication
+      auto-index-creation: true
   mail:
     host: localhost
     port: 25
@@ -44,7 +46,7 @@ spring:
 
 # ===================================================================
 # To enable TLS in production, generate a certificate using:
-# keytool -genkey -alias jhipster -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -genkey -alias jhipsterapplication -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
 # See details in topic "Create a Java Keystore (.JKS) from Let's Encrypt Certificates" on https://maximilian-boehm.com/en-gb/blog

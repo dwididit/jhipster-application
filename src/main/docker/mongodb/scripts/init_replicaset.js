@@ -3,8 +3,8 @@ if (status.errmsg === 'no replset config has been received') {
   rs.initiate();
 }
 for (let i = 1; i <= param; i++) {
-  if (i !== 1) rs.add(`${folder}_jhipster-mongodb-node_${i}:27018`);
+  if (i !== 1) rs.add(`${folder}_jhipsterapplication-mongodb-node_${i}:27018`);
 }
 const cfg = rs.conf();
-cfg.members[0].host = `${folder}_jhipster-mongodb-node_1:27018`;
+cfg.members[0].host = `${folder}_jhipsterapplication-mongodb-node_1:27018`;
 rs.reconfig(cfg);
