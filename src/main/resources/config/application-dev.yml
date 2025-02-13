@@ -32,9 +32,7 @@ spring:
       indent-output: true
   data:
     mongodb:
-      uri: mongodb://jhipsterapplication:jhipsterapplication@localhost:27018/jhipsterapplication?authSource=admin
-      database: jhipsterapplication
-      auto-index-creation: true
+      uri: mongodb://localhost:27017/jhipster
   mail:
     host: localhost
     port: 25

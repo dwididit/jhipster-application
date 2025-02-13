@@ -24,7 +24,7 @@ mongock:
 
 spring:
   application:
-    name: jhipsterApplication
+    name: jhipster
   jackson:
     serialization:
       write-durations-as-timestamps: false
@@ -42,13 +42,13 @@ spring:
           authorities-claim-name: auth
   task:
     execution:
-      thread-name-prefix: jhipster-application-task-
+      thread-name-prefix: jhipster-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: jhipster-application-scheduling-
+      thread-name-prefix: jhipster-scheduling-
       pool:
         size: 20
   thymeleaf:
@@ -65,9 +65,9 @@ server:
 # ===================================================================
 jhipster:
   clientApp:
-    name: 'jhipsterApplicationApp'
+    name: 'jhipsterApp'
   mail:
-    from: jhipsterApplication@localhost.com
+    from: jhipster@localhost.com
     base-url: http://127.0.0.1:8080
   logging:
     # To test json console appender
