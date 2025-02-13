@@ -59,7 +59,7 @@ public class InitialSetupMigration {
 
     private User createUser(Authority userAuthority) {
         User userUser = new User();
-        userUser.setId("user-2");
+        userUser.setId("2");
         userUser.setLogin("user");
         userUser.setPassword("$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K");
         userUser.setFirstName("User");
@@ -75,7 +75,7 @@ public class InitialSetupMigration {
 
     private User createAdmin(Authority adminAuthority, Authority userAuthority) {
         User adminUser = new User();
-        adminUser.setId("user-1");
+        adminUser.setId("1");
         adminUser.setLogin("admin");
         adminUser.setPassword("$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC");
         adminUser.setFirstName("admin");

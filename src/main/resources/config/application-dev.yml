@@ -19,6 +19,7 @@ logging:
     tech.jhipster: DEBUG
     org.hibernate.SQL: DEBUG
     dev.dwidi.jhipster: DEBUG
+    javax.management.remote.rmi: OFF
 
 spring:
   devtools:

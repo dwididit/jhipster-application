@@ -159,6 +159,10 @@ dependencies {
     testImplementation "org.testcontainers:mongodb"
     testImplementation "org.testcontainers:testcontainers"
     developmentOnly "org.springframework.boot:spring-boot-docker-compose"
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.zalando:problem:0.27.1'
+    implementation 'org.zalando:problem-spring-web:0.29.1'
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 
