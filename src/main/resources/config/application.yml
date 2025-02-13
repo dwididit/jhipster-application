@@ -94,10 +94,10 @@ mongock:
 
 spring:
   application:
-    name: jhipster
+    name: jhipsterApplication
   docker:
     compose:
-      enabled: true
+      enabled: false
       lifecycle-management: start-only
       file: src/main/docker/services.yml
   profiles:
@@ -128,13 +128,13 @@ spring:
           authorities-claim-name: auth
   task:
     execution:
-      thread-name-prefix: jhipster-task-
+      thread-name-prefix: jhipster-application-task-
       pool:
         core-size: 2
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: jhipster-scheduling-
+      thread-name-prefix: jhipster-application-scheduling-
       pool:
         size: 2
   thymeleaf:
@@ -165,7 +165,7 @@ info:
 
 jhipster:
   clientApp:
-    name: 'jhipsterApp'
+    name: 'jhipsterApplicationApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
   #   allowed-origins: "http://localhost:8100,http://localhost:9000"
@@ -175,12 +175,12 @@ jhipster:
   #   allow-credentials: true
   #   max-age: 1800
   mail:
-    from: jhipster@localhost
+    from: jhipsterApplication@localhost
   api-docs:
     default-include-pattern: /api/**
     management-include-pattern: /management/**
-    title: JHipster API
-    description: JHipster API documentation
+    title: Jhipster Application API
+    description: Jhipster Application API documentation
     version: 0.0.1
     terms-of-service-url:
     contact-name:

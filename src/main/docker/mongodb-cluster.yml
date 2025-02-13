@@ -1,5 +1,5 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
-name: jhipster
+name: jhipsterapplication
 services:
   mongodb:
     image: mongo:8.0.4
@@ -7,7 +7,7 @@ services:
     # remove the "127.0.0.1:" prefix
     ports:
       - 127.0.0.1:27017:27017
-    command: mongos --configdb csvr/jhipster-mongodb-config --bind_ip 0.0.0.0
+    command: mongos --configdb csvr/jhipsterapplication-mongodb-config --bind_ip 0.0.0.0
   mongodb-node:
     build:
       context: .
@@ -15,5 +15,5 @@ services:
     command: mongod --shardsvr --replSet rs1
   mongodb-config:
     image: mongo:8.0.4
-    container_name: jhipster-mongodb-config
+    container_name: jhipsterapplication-mongodb-config
     command: mongod --configsvr --dbpath /data/db --replSet csvr

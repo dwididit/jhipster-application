@@ -9,7 +9,7 @@ import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
-@AnalyzeClasses(packagesOf = JhipsterApp.class, importOptions = DoNotIncludeTests.class)
+@AnalyzeClasses(packagesOf = JhipsterApplicationApp.class, importOptions = DoNotIncludeTests.class)
 class TechnicalStructureTest {
 
     // prettier-ignore
@@ -30,7 +30,7 @@ class TechnicalStructureTest {
         .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Service", "Security", "Web", "Config")
         .whereLayer("Domain").mayOnlyBeAccessedByLayers("Persistence", "Service", "Security", "Web", "Config")
 
-        .ignoreDependency(belongToAnyOf(JhipsterApp.class), alwaysTrue())
+        .ignoreDependency(belongToAnyOf(JhipsterApplicationApp.class), alwaysTrue())
         .ignoreDependency(alwaysTrue(), belongToAnyOf(
             dev.dwidi.jhipster.config.Constants.class,
             dev.dwidi.jhipster.config.ApplicationProperties.class
